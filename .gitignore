@@ -1,0 +1,53 @@
+# --- Python / bytecode ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# --- Entorn virtual ---
+venv/
+
+# --- Entorn / secrets ---
+.env
+.env.*
+!env.example
+
+# --- Django / Base de dades ---
+db.sqlite3
+media/
+staticfiles/          # Resultat de collectstatic en entorns de producció
+*.log
+
+# --- Fitxers temporals / compilació ---
+*.tmp
+*.swp
+*.bak
+
+# --- Tests / cobertura ---
+.coverage
+coverage.xml
+htmlcov/
+pytest_cache/
+.tox/
+
+# --- IDE / Editor ---
+.vscode/
+.idea/
+*.code-workspace
+
+# --- Sistema operatiu ---
+.DS_Store
+Thumbs.db
+
+# --- Node / Frontend (si en un futur afegeixes build tools) ---
+node_modules/
+dist/
+build/
+
+# --- Docker (si algun dia s'afegeix) ---
+*.pid
+
+# --- Altres opcionalment ignorables ---
+#migrations/          # IMPORTANT: NO descomentar; les migracions SÍ es pugen
+
