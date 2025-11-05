@@ -1,0 +1,88 @@
+[
+    {
+      "model": "users.customuser",
+      "pk": 1,
+      "fields": {
+        "username": "admin",
+        "email": "admin@streamevents.com",
+        "password": "pbkdf2_sha256$260000$pMEWPCVXqRCZhyau2eoQZ7$ePn+ePtj6rT9p5ykoS2EatpGsMIezcTl2ZGW5ExaEiM=", 
+        "first_name": "Admin",
+        "last_name": "System",
+        "is_staff": true,
+        "is_superuser": true,
+        "is_active": true,
+        "date_joined": "2024-01-01T00:00:00Z",
+        "groups": [1],
+        "user_permissions": []
+      }
+    },
+    {
+      "model": "users.customuser",
+      "pk": 2,
+      "fields": {
+        "username": "orga1",
+        "email": "orga1@streamevents.com",
+        "password": "pbkdf2_sha256$260000$SCQE1xpa8yrejMqD1qEH0b$pFRJFsd75NXQ1mIKk+wOVL5SFl2KWEjI2qXu7i4vO/g=",
+        "first_name": "Maria",
+        "last_name": "Organitzadora",
+        "is_staff": false,
+        "is_superuser": false,
+        "is_active": true,
+        "date_joined": "2024-01-02T00:00:00Z",
+        "groups": [1],
+        "user_permissions": []
+      }
+    },
+    {
+      "model": "users.customuser",
+      "pk": 3,
+      "fields": {
+        "username": "part1",
+        "email": "part1@streamevents.com",
+        "password": "pbkdf2_sha256$260000$SCQE1xpa8yrejMqD1qEH0b$pFRJFsd75NXQ1mIKk+wOVL5SFl2KWEjI2qXu7i4vO/g=",
+        "first_name": "Joan",
+        "last_name": "Participant",
+        "is_staff": false,
+        "is_superuser": false,
+        "is_active": true,
+        "date_joined": "2024-01-03T00:00:00Z",
+        "groups": [2],
+        "user_permissions": []
+      }
+    },
+    {
+      "model": "users.customuser",
+      "pk": 4,
+      "fields": {
+        "username": "part2",
+        "email": "part2@streamevents.com",
+        "password": "pbkdf2_sha256$260000$SCQE1xpa8yrejMqD1qEH0b$pFRJFsd75NXQ1mIKk+wOVL5SFl2KWEjI2qXu7i4vO/g=",
+        "first_name": "Anna",
+        "last_name": "Participant",
+        "is_staff": false,
+        "is_superuser": false,
+        "is_active": true,
+        "date_joined": "2024-01-04T00:00:00Z",
+        "groups": [2],
+        "user_permissions": []
+      }
+    },
+    {
+      "model": "users.customuser",
+      "pk": 5,
+      "fields": {
+        "username": "mod1",
+        "email": "mod1@streamevents.com",
+        "password": "pbkdf2_sha256$260000$SCQE1xpa8yrejMqD1qEH0b$pFRJFsd75NXQ1mIKk+wOVL5SFl2KWEjI2qXu7i4vO/g=",
+        "first_name": "Pau",
+        "last_name": "Moderador",
+        "is_staff": false,
+        "is_superuser": false,
+        "is_active": true,
+        "date_joined": "2024-01-05T00:00:00Z",
+        "groups": [3],
+        "user_permissions": []
+      }
+    }
+  ]
+  
