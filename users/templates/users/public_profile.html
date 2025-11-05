@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Perfil Públic{% endblock %}
+{% block content %}
+
+<h2>Perfil de {{ user_profile.username }}</h2>
+
+<p><strong>Nom a mostrar:</strong> {{ user_profile.display_name }}</p>
+<p><strong>Bio:</strong> {{ user_profile.bio }}</p>
+
+{% if user_profile.avatar %}
+    <img src="{{ user_profile.avatar.url }}" width="120">
+{% endif %}
+
+{% endblock %}

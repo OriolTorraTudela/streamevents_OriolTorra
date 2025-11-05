@@ -1,11 +1,21 @@
 <!doctype html>
 <html lang="ca">
 <head> 
+    {% load static %}
     <meta charset="utf-8"> 
-    <title>StreamEvents</title> 
+    <title>{% block title %}StreamEvents{% endblock %}</title> 
+
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head> 
+
 <body> 
-    <h1>{% block title %}StreamEvents{% endblock %}</h1> 
-    <div> {% block content %}Contingut{% endblock %} </div> 
+
+    {% include 'includes/navbar.html' %}
+
+    <main class="container">
+        {% include 'includes/messages.html' %}
+        {% block content %}{% endblock %}
+    </main>
+
 </body> 
 </html>

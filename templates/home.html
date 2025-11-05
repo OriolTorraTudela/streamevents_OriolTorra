@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}StreamEvents{% endblock %}
+{% block content %}
+
+<h1>🎉 StreamEvents</h1>
+<p>Benvingut/da a la plataforma!</p>
+
+{% if user.is_authenticated %}
+    <a href="{% url 'users:profile' %}" class="btn btn-primary">Veure el meu perfil</a>
+    <a href="{% url 'users:logout' %}" class="btn">Tancar sessió</a>
+{% else %}
+    <a href="{% url 'users:login' %}" class="btn btn-primary">Iniciar sessió</a>
+    <a href="{% url 'users:register' %}" class="btn">Registrar-se</a>
+{% endif %}
+
+{% endblock %}

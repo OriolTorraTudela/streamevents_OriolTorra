@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Perfil{% endblock %}
+{% block content %}
+
+<h2>Hola, {{ request.user.display_name|default:request.user.username }} 👋</h2>
+
+<p><strong>Bio:</strong> {{ request.user.bio|default:"(sense biografia)" }}</p>
+
+{% if request.user.avatar %}
+    <img src="{{ request.user.avatar.url }}" width="120" style="border-radius:8px;">
+{% endif %}
+
+<br><br>
+<a href="{% url 'users:edit_profile' %}">Editar perfil</a>
+
+{% endblock %}
