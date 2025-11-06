@@ -1,16 +1,24 @@
 {% extends "base.html" %}
-{% block title %}Perfil{% endblock %}
+{% block title %}El meu perfil{% endblock %}
 {% block content %}
 
-<h2>Hola, {{ request.user.display_name|default:request.user.username }} 👋</h2>
+<div class="profile">
+    <div class="profile-left">
+        <h2>Hola, {{ user.display_name|default:user.username }}!</h2>
+        <p><strong>Bio:</strong> {{ user.bio|default:"(encara no tens bio)" }}</p>
+    </div>
 
-<p><strong>Bio:</strong> {{ request.user.bio|default:"(sense biografia)" }}</p>
+    <div class="profile-right">
+        {% if user.avatar %}
+            <img src="{{ user.avatar.url }}" class="avatar">
+        {% endif %}
+    </div>
+</div>
 
-{% if request.user.avatar %}
-    <img src="{{ request.user.avatar.url }}" width="120" style="border-radius:8px;">
-{% endif %}
+<div class="profile-actions">
+    <a href="{% url 'users:edit_profile' %}" class="btn btn-primary">Editar perfil</a>
+</div>
 
-<br><br>
-<a href="{% url 'users:edit_profile' %}">Editar perfil</a>
+<a href="{% url 'users:password_change' %}" class="btn btn-warning mt-3">Canviar contrasenya</a>
 
 {% endblock %}

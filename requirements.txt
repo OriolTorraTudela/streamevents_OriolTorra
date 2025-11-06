@@ -8,3 +8,4 @@ python-dotenv==1.0.0
 pytz==2025.2
 sqlparse==0.2.4
 tzdata==2025.2
+Faker==19.13.0

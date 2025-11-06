@@ -1,15 +1,34 @@
 {% extends "base.html" %}
-{% block title %}Iniciar Sessió{% endblock %}
+{% block title %}Iniciar sessió{% endblock %}
 {% block content %}
 
 <h2>Inicia la sessió</h2>
 
-<form method="post">
+<form method="post" class="form">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Entrar</button>
+
+    <div class="form-group">
+        <label>Usuari o Email:</label>
+        {{ form.username }}
+        {% if form.username.errors %}
+            <div class="field-error">{{ form.username.errors|striptags }}</div>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        <label>Contrasenya:</label>
+        {{ form.password }}
+        {% if form.password.errors %}
+            <div class="field-error">{{ form.password.errors|striptags }}</div>
+        {% endif %}
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-full">Entrar</button>
 </form>
 
-<p>No tens compte? <a href="{% url 'users:register' %}">Registrar-se</a></p>
+<p style="margin-top: 20px;">
+    No tens compte?
+    <a href="{% url 'users:register' %}">Registrar-se</a>
+</p>
 
 {% endblock %}

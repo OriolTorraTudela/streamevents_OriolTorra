@@ -48,13 +48,13 @@ class Command(BaseCommand):
 
         # Si s'ha passat l'argument --clear, elimina tots els usuaris normals
         if options['clear']:
-            self.stdout.write("🗑️  Eliminant usuaris existents...")
+            self.stdout.write("Eliminant usuaris existents...")
             count = 0
             for user in User.objects.all():
                 if not user.is_superuser:  # No elimina el superusuari
                     user.delete()
                     count += 1
-            self.stdout.write(self.style.SUCCESS(f"✅ Eliminats {count} usuaris"))  # Mostra el nombre d'usuaris eliminats
+            self.stdout.write(self.style.SUCCESS(f" Eliminats {count} usuaris"))  # Mostra el nombre d'usuaris eliminats
 
         # Utilitzem una transacció per assegurar que tot es crea correctament
         with transaction.atomic():
@@ -66,11 +66,11 @@ class Command(BaseCommand):
             users_created = self.create_users(num_users, groups)
 
         # Missatge de confirmació final que indica el nombre d'usuaris creats
-        self.stdout.write(self.style.SUCCESS(f"🎉 {num_users} usuaris creats correctament!"))
+        self.stdout.write(self.style.SUCCESS(f" {num_users} usuaris creats correctament!"))
         
         # Missatge si s'ha inclòs l'opció --with-follows (encara pendent)
         if options["with_follows"]:
-            self.stdout.write("👉 Funcionalitat de 'follows' pendent d'implementar")
+            self.stdout.write(" Funcionalitat de 'follows' pendent d'implementar")
 
 
     # FUNCIÓ PER CREAR ELS GRUPS
@@ -99,15 +99,15 @@ class Command(BaseCommand):
                 is_staff=True,        # Té accés al panell d'administració
                 is_superuser=True,    # És superusuari
                 is_active=True,       # Està actiu
-                display_name="🔧 Administrador",
+                display_name=" Administrador",
                 bio="Superusuari principal",
                 avatar="admin.png"
             )
             # Afegeix l'admin al grup d'Organitzadors
             admin.groups.add(org_group)
-            self.stdout.write(self.style.SUCCESS("✔ Superusuari admin creat"))
+            self.stdout.write(self.style.SUCCESS(" Superusuari admin creat"))
         else:
-            self.stdout.write("ℹ️ El superusuari admin ja existeix")
+            self.stdout.write(" El superusuari admin ja existeix")
 
 
     # FUNCIÓ PER CREAR USUARIS FALSOS
@@ -142,7 +142,7 @@ class Command(BaseCommand):
             self.assign_group(user, i, groups)
 
             # Mostra un missatge de confirmació per consola
-            self.stdout.write(self.style.SUCCESS(f"✔ Creat usuari: {username}"))
+            self.stdout.write(self.style.SUCCESS(f" Creat usuari: {username}"))
 
 
     # FUNCIÓ PER ASSIGNAR GRUPS SEGONS L’ÍNDEX
@@ -150,11 +150,11 @@ class Command(BaseCommand):
         # Cada 5è usuari serà Organitzador
         if index % 5 == 0:
             user.groups.add(groups["Organitzadors"])
-            user.display_name += " 🎯"
+            user.display_name += " "
         # Cada 3r usuari serà Moderador
         elif index % 3 == 0:
             user.groups.add(groups["Moderadors"])
-            user.display_name += " 🛡️"
+            user.display_name += " "
         # La resta seran Participants
         else:
             user.groups.add(groups["Participants"])

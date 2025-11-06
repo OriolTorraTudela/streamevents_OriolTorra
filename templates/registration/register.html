@@ -4,12 +4,63 @@
 
 <h2>Crea el teu compte</h2>
 
-<form method="post">
+<form method="post" class="form">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Registrar</button>
+
+    <div class="form-group">
+        <label>Nom d'usuari:</label>
+        {{ form.username }}
+        {% if form.username.errors %}
+            <div class="field-error">{{ form.username.errors|striptags }}</div>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        <label>Adreça de correu electrònic:</label>
+        {{ form.email }}
+        {% if form.email.errors %}
+            <div class="field-error">{{ form.email.errors|striptags }}</div>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        <label>Nom propi:</label>
+        {{ form.first_name }}
+        {% if form.first_name.errors %}
+            <div class="field-error">{{ form.first_name.errors|striptags }}</div>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        <label>Cognoms:</label>
+        {{ form.last_name }}
+        {% if form.last_name.errors %}
+            <div class="field-error">{{ form.last_name.errors|striptags }}</div>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        <label>Contrasenya:</label>
+        {{ form.password1 }}
+        {% if form.password1.errors %}
+            <div class="field-error">{{ form.password1.errors|striptags }}</div>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        <label>Repeteix la contrasenya:</label>
+        {{ form.password2 }}
+        {% if form.password2.errors %}
+            <div class="field-error">{{ form.password2.errors|striptags }}</div>
+        {% endif %}
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-full">Registrar</button>
 </form>
 
-<p>Ja tens compte? <a href="{% url 'users:login' %}">Iniciar sessió</a></p>
+<p style="margin-top:20px;">
+    Ja tens compte?
+    <a href="{% url 'users:login' %}">Iniciar sessió</a>
+</p>
 
 {% endblock %}

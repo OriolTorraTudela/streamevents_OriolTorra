@@ -1,9 +1,9 @@
-from django.shortcuts import render
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth import get_user_model
+from django.db import DatabaseError
 
 from .forms import (
     CustomUserCreationForm,
@@ -19,10 +19,14 @@ def register_view(request):
     if request.method == "POST":
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            login(request, user)  # Login automàtic
-            messages.success(request, "Compte creat correctament! 🎉")
-            return redirect("home")  # Redirecció confirmada
+            try:
+                user = form.save()
+                login(request, user)
+                messages.success(request, "Compte creat correctament! 🎉")
+                return redirect("home")
+            except DatabaseError:
+                messages.error(request, "Error inesperat. Torna-ho a provar.")
+        return render(request, "registration/register.html", {"form": form})
     else:
         form = CustomUserCreationForm()
 
@@ -55,9 +59,11 @@ def logout_view(request):
     messages.info(request, "Sessió tancada correctament.")
     return redirect("home")
 
-# HOME (pàgina principal)
+
+# HOME
 def home_view(request):
     return render(request, "home.html")
+
 
 # 2.4 PERFIL PROPI
 @login_required
@@ -72,7 +78,7 @@ def edit_profile_view(request):
         form = CustomUserUpdateForm(request.POST, request.FILES, instance=request.user)
         if form.is_valid():
             form.save()
-            messages.success(request, "Perfil actualitzat correctament ✅")
+            messages.success(request, "Perfil actualitzat correctament ")
             return redirect("users:profile")
     else:
         form = CustomUserUpdateForm(instance=request.user)

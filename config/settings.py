@@ -52,7 +52,7 @@ DATABASES = {
     'default': {  # MOD
         'ENGINE': 'djongo',  # MOD: Motor djongo
         'NAME': 'streamevents_db',  # MOD: Nom BBDD
-        'ENFORCE_SCHEMA': True,  # MOD: Validació d'esquema
+        'ENFORCE_SCHEMA': False,  # MOD: Validació d'esquema
         'CLIENT': {  # MOD
             'host': 'mongodb://localhost:27017'  # MOD: Connexió Mongo
         }  # MOD
@@ -97,6 +97,7 @@ MESSAGE_TAGS = {  # MOD: Adaptació a classes Bootstrap
     messages.WARNING: 'warning',
     messages.ERROR: 'danger',
 }
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 # (Opcional futur producció)
 # CSRF_COOKIE_SECURE = True  # MOD
