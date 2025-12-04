@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from users.views import home_view   # <-- Afegit
+from users.views import home_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -12,6 +12,9 @@ urlpatterns = [
 
     # USERS
     path("users/", include("users.urls", namespace="users")),
+
+    # EVENTS 👇
+    path("events/", include(("events.urls", "events"), namespace="events")),
 ]
 
 if settings.DEBUG:

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    {% if mode == "create" %}Nou esdeveniment{% else %}Editar esdeveniment{% endif %} · StreamEvents
+{% endblock %}
+
+{% block content %}
+<section class="events-page">
+    <div class="events-page-header">
+        <div>
+            <h1 class="events-title">
+                {% if mode == "create" %}Crear esdeveniment{% else %}Editar esdeveniment{% endif %}
+            </h1>
+            <p class="events-subtitle">
+                Defineix el títol, la categoria, la data i l'enllaç del teu stream.
+            </p>
+        </div>
+    </div>
+
+    <form method="post" enctype="multipart/form-data" class="form-event" novalidate>
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+        {% for field in form %}
+            <div class="mb-3">
+                <label class="form-label" for="{{ field.id_for_label }}">
+                    {{ field.label }}{% if field.field.required %} *{% endif %}
+                </label>
+                {{ field }}
+                {% if field.help_text %}
+                    <div class="form-text">{{ field.help_text }}</div>
+                {% endif %}
+                {% for error in field.errors %}
+                    <div class="text-danger small">{{ error }}</div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+        <div class="mb-3" id="thumbnail-preview-wrapper">
+            <label class="form-label">Previsualització de la imatge</label>
+            <div class="event-thumbnail-preview">
+                {% if form.instance and form.instance.pk and form.instance.thumbnail %}
+                    <img id="thumbnail-preview"
+                         src="{{ form.instance.get_thumbnail_url }}"
+                         alt="{{ form.instance.title }}"
+                         class="img-fluid rounded border">
+                {% else %}
+                    <img id="thumbnail-preview"
+                         src=""
+                         alt=""
+                         class="img-fluid rounded border d-none">
+                {% endif %}
+                <p class="form-text">
+                    La imatge seleccionada per al camp <strong>Imatge de portada</strong> es mostrarà aquí abans de desar l'esdeveniment.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-event-actions">
+            <button type="submit" class="btn btn-primary btn-full-on-mobile">
+                {% if mode == "create" %}Crear{% else %}Desar canvis{% endif %}
+            </button>
+        </div>
+    </form>
+</section>
+
+<datalist id="tags-suggestions"></datalist>
+
+<script src="{% static 'ivents/js/event_form.js' %}"></script>
+<script src="{% static 'ivents/js/tags_autocomplete.js' %}"></script>
+{% endblock %}

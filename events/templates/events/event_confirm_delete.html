@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Eliminar esdeveniment · StreamEvents{% endblock %}
+
+{% block content %}
+<section class="event-delete-page">
+    <div class="event-delete-card">
+        <h1>Eliminar esdeveniment</h1>
+
+        <p>
+            Estàs segur que vols eliminar l'esdeveniment
+            <strong>{{ event.title }}</strong>?
+        </p>
+
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">
+                Sí, eliminar
+            </button>
+            <a href="{{ event.get_absolute_url }}" class="btn btn-secondary">
+                Cancel·lar
+            </a>
+        </form>
+    </div>
+</section>
+{% endblock %}

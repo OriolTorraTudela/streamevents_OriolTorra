@@ -1,0 +1,31 @@
+<div class="row g-2 event-filters-row">
+    <div class="col-md-2">
+        {{ form.search.label_tag }}
+        {{ form.search }}
+    </div>
+    <div class="col-md-2">
+        {{ form.category.label_tag }}
+        {{ form.category }}
+    </div>
+    <div class="col-md-2">
+        {{ form.status.label_tag }}
+        {{ form.status }}
+    </div>
+    <div class="col-md-2">
+        {{ form.tag.label_tag }}
+        {{ form.tag }}
+    </div>
+    <div class="col-md-2">
+        {{ form.date_from.label_tag }}
+        {{ form.date_from }}
+    </div>
+    <div class="col-md-2">
+        {{ form.date_to.label_tag }}
+        {{ form.date_to }}
+    </div>
+</div>
+
+<div class="mt-3 event-filters-actions">
+    <button type="submit" class="btn btn-primary">Aplicar filtres</button>
+    <a href="." class="btn btn-secondary">Netejar</a>
+</div>

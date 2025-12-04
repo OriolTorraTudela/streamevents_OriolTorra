@@ -1,243 +1,941 @@
-/* GLOBAL */
-body {
+/* =========================================================
+   VARIABLES GLOBALS · PALETA "BLAU PREMIUM"
+========================================================= */
+:root {
+    --color-bg-body: #f2f3f7;
+    --color-bg-card: #ffffff;
+    --color-bg-soft: #f8f9fb;
+
+    --color-border-soft: #e2e4ea;
+    --color-border-strong: #d1d5db;
+
+    --color-text-main: #111827;
+    --color-text-muted: #6b7280;
+    --color-text-soft: #9ca3af;
+
+    --color-primary: #005eff;
+    --color-primary-dark: #0041b8;
+    --color-primary-light: #e0ebff;
+
+    --color-success: #16a34a;
+    --color-danger: #dc2626;
+    --color-warning: #f59e0b;
+
+    --radius-md: 12px;
+    --radius-lg: 16px;
+
+    --shadow-soft: 0 8px 18px rgba(15, 23, 42, 0.06);
+    --shadow-strong: 0 12px 26px rgba(15, 23, 42, 0.14);
+
+    --transition-fast: 0.18s ease;
+    --transition-normal: 0.25s ease;
+}
+
+/* =========================================================
+   BASE GLOBAL
+========================================================= */
+
+html, body {
     margin: 0;
-    font-family: sans-serif;
-    background: #f2f3f5;
-    color: #1b1b1b;
+    padding: 0;
+    min-height: 100%;
 }
 
-/* NAVBAR */
-.navbar {
-    background: #ffffff;
-    border-bottom: 1px solid #e2e2e2;
-    padding: 14px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: radial-gradient(circle at top left, #e3edff 0, #f2f3f7 45%, #eef2ff 100%);
+    color: var(--color-text-main);
 }
 
-.navbar a {
-    text-decoration: none;
-    color: #222;
-    margin-left: 18px;
-    font-weight: 500;
-}
-
-.navbar .brand {
-    font-weight: 700;
-    font-size: 18px;
-}
-
-.navbar .btn-primary {
-    background: #005eff;
-    padding: 6px 12px;
-    border-radius: 6px;
-    color: white !important;
-}
-
-.navbar .logout {
-    color: #d9534f;
-}
-
-/* CONTENIDOR PRINCIPAL */
-.container {
-    max-width: 900px;
-    background: white;
-    margin: 50px auto;
-    padding: 32px;
-    border-radius: 12px;
-    border: 1px solid #ddd;
-}
-
-/* TÍTOLS */
-h1, h2 {
-    margin-top: 0;
-    margin-bottom: 16px;
-    font-weight: 600;
-}
-
-/* TEXT */
-p {
-    margin: 10px 0 20px;
-}
-
-/* ENLLAÇOS */
+/* Enllaços per defecte */
 a {
-    color: #005eff;
+    color: var(--color-primary);
     text-decoration: none;
 }
 a:hover {
     text-decoration: underline;
 }
 
-/* FORMULARIS */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+/* Contenidor principal basat en Bootstrap container */
+.main-shell {
+    padding-top: 70px; /* espai per la navbar si és fixed */
 }
 
-input, textarea, select {
-    padding: 10px 12px;
-    border: 1px solid #cfcfcf;
-    border-radius: 8px;
-    font-size: 15px;
+/* Refina el .container de Bootstrap sense rebentar-lo */
+.container {
+    max-width: 1200px;
+}
+
+/* Títols generals */
+h1, h2, h3, h4, h5 {
+    font-weight: 650;
+    color: var(--color-text-main);
+}
+
+/* Paràgrafs */
+p {
+    margin-bottom: 0.75rem;
+    color: var(--color-text-main);
+}
+
+/* =========================================================
+   NAVBAR · ESTIL STREAMEVENTS
+========================================================= */
+
+.navbar-stream {
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.navbar-stream .navbar-brand {
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    font-size: 19px;
+    color: var(--color-primary);
+}
+
+.navbar-stream .nav-link {
+    font-weight: 500;
+    color: #4b5563;
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+    transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.navbar-stream .nav-link:hover,
+.navbar-stream .nav-link.active {
+    background: var(--color-primary-light);
+    color: var(--color-primary-dark);
+}
+
+.navbar-stream .btn-primary {
+    padding: 0.45rem 1.1rem;
+    border-radius: 999px;
+}
+
+/* Logout més destacat */
+.navbar-stream .logout-link {
+    color: #dc2626 !important;
+}
+
+/* =========================================================
+   BOTONS · SOBREESCRIPTURA SUAU DE BOOTSTRAP
+========================================================= */
+
+.btn {
+    border-radius: 999px;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-width: 1px;
+    transition: background var(--transition-fast),
+                color var(--transition-fast),
+                box-shadow var(--transition-fast),
+                transform var(--transition-fast);
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Principal */
+.btn-primary {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #ffffff;
+    box-shadow: 0 6px 14px rgba(37, 99, 235, 0.36);
+}
+.btn-primary:hover {
+    background: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.42);
+}
+
+/* Secundari suau */
+.btn-light,
+.btn-secondary {
+    background: #e5e7eb;
+    border-color: #d1d5db;
+    color: #111827;
+}
+.btn-light:hover,
+.btn-secondary:hover {
+    background: #d1d5db;
+    border-color: #9ca3af;
+}
+
+/* Contorn */
+.btn-outline-secondary {
+    border-color: #d1d5db;
+    color: #4b5563;
+}
+.btn-outline-secondary:hover {
+    background: #e5e7eb;
+    color: #111827;
+}
+
+/* Botons a full width quan cal */
+.btn-full,
+.btn-full-on-mobile {
+    width: 100%;
+}
+
+/* =========================================================
+   MISSATGES DE DJANGO (messages framework)
+========================================================= */
+
+.messages {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1rem;
+}
+
+.messages .msg,
+.alert-django {
+    border-radius: var(--radius-md);
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid transparent;
+}
+
+.msg.success,
+.alert-success {
+    background: #ecfdf3;
+    border-color: #bbf7d0;
+    color: #166534;
+}
+.msg.error,
+.alert-danger {
+    background: #fef2f2;
+    border-color: #fecaca;
+    color: #b91c1c;
+}
+.msg.info,
+.alert-info {
+    background: #eff6ff;
+    border-color: #bfdbfe;
+    color: #1d4ed8;
+}
+.msg.warning,
+.alert-warning {
+    background: #fffbeb;
+    border-color: #fef3c7;
+    color: #92400e;
+}
+
+/* =========================================================
+   FORMULARIS GENERALS
+========================================================= */
+
+form {
+    gap: 0.75rem;
+}
+
+input,
+textarea,
+select {
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    padding: 0.55rem 0.8rem;
+    font-size: 0.95rem;
     background: #ffffff;
 }
 
-input:focus, textarea:focus, select:focus {
-    border-color: #005eff;
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.3);
     outline: none;
 }
 
-/* BOTONS */
-/* BOTONS */
-.btn {
-    display: inline-block;
-    background: #e9e9e9;
-    padding: 10px 14px;
-    border-radius: 8px;
-    text-decoration: none !important;
-    font-weight: 500;
-    color: #222 !important;
-    transition: 0.2s;
-    margin-right: 6px;
+.form-group {
+    margin-bottom: 0.9rem;
 }
 
-.btn:hover {
-    background: #d7d7d7;
+.form-group label,
+.form-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+    color: #374151;
 }
 
-.btn-primary {
-    background: #005eff !important;
-    color: white !important;
+/* Input file més polit */
+input[type="file"] {
+    padding: 0.4rem;
+    border-radius: 999px;
+    background: #f9fafb;
 }
 
-.btn-primary:hover {
-    background: #0041b8 !important;
+.field-error,
+.text-danger.small {
+    color: #b91c1c;
+    font-size: 0.84rem;
 }
 
+/* =========================================================
+   PERFIL D'USUARI / PANELL GENERAL
+========================================================= */
 
-/* Missatges */
-.messages {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 20px;
-}
-.msg {
-    padding: 12px;
-    border-radius: 6px;
-    margin-bottom: 10px;
-}
-.msg.success { background: #d4ffd4; }
-.msg.error { background: #ffd4d4; }
-.msg.info { background: #d4e4ff; }
-.msg.warning { background: #fff4d4; }
-
-/* BOTONS ENLLAÇ */
-.btn {
-    display: inline-block;
-    background: #e9e9e9;
-    padding: 10px 14px;
-    border-radius: 8px;
-    text-decoration: none !important;
-    font-weight: 500;
-    color: #222 !important;
-    transition: 0.2s;
-    margin-right: 6px;
-}
-
-.btn:hover {
-    background: #d7d7d7;
-}
-
-.btn-primary {
-    background: #005eff !important;
-    color: white !important;
-}
-
-.btn-primary:hover {
-    background: #0041b8 !important;
-}
-
-
-/* PERFIL */
 .profile {
     display: flex;
-    justify-content: space-between;
     align-items: flex-start;
-    gap: 40px;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.profile-main {
+    flex: 1;
+}
+
+.profile-right {
+    min-width: 220px;
+    text-align: center;
 }
 
 .profile-right .avatar {
     width: 180px;
-    height: auto;
-    border-radius: 10px;
+    height: 180px;
     object-fit: cover;
+    border-radius: 20px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid #e5e7eb;
+    background: #f3f4f6;
 }
 
-
-/* BOTÓ A SOTA DEL PERFIL */
 .profile-actions {
-    margin-top: 30px;
-    text-align: left; /* o center si el vols centrat */
+    margin-top: 1.5rem;
 }
 
+/* =========================================================
+   FOOTER
+========================================================= */
 
+.footer {
+    margin-top: 40px;
+    border-top: 1px solid rgba(226, 232, 240, 0.9);
+    background: rgba(255, 255, 255, 0.96);
+}
 
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.9rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #6b7280;
+}
 
+.footer nav a {
+    margin-left: 1rem;
+    color: #6b7280;
+}
+.footer nav a:hover {
+    color: var(--color-primary);
+}
 
-/* FORM GROUP */
-.form-group {
+/* =========================================================
+   MÒDUL D'ESDEVENIMENTS · PÀGINA LLISTAT
+========================================================= */
+
+.events-page {
+    margin-top: 1.5rem;
+}
+
+/* Capçalera secció */
+.events-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.events-title {
+    margin: 0;
+    font-size: 1.7rem;
+    font-weight: 750;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.events-badge {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    padding: 0.18rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid #d3ddff;
+    background: #eef3ff;
+    color: var(--color-primary-dark);
+}
+
+.events-subtitle {
+    margin: 0.15rem 0 0;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+}
+
+/* Botó crear */
+.events-create-btn {
+    white-space: nowrap;
+}
+
+/* =========================================================
+   FILTRES (event_list)
+========================================================= */
+
+.event-filters {
+    background: var(--color-bg-soft);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border-soft);
+    padding: 1rem 1.1rem;
+    margin-bottom: 1.4rem;
+}
+
+.event-filters-row {
+    margin: -0.25rem -0.4rem;
+}
+
+.event-filters-row > [class*="col-"] {
+    padding: 0.25rem 0.4rem;
+}
+
+.event-filters-row label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: #6b7280;
+    margin-bottom: 0.2rem;
+}
+
+.event-filters-row input,
+.event-filters-row select {
+    font-size: 0.9rem;
+    border-radius: 999px;
+}
+
+.event-filters-actions {
+    margin-top: 0.6rem;
+}
+
+/* =========================================================
+   GRID D'EVENTS (row + col-md-4 de Bootstrap)
+========================================================= */
+
+.events-grid.row {
+    row-gap: 1.7rem;
+}
+
+.events-grid .col-md-4 {
+    display: flex;
+}
+
+/* =========================================================
+   TARGETA D'ESDEVENIMENT · LOOK PRO
+========================================================= */
+
+.event-card {
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border-soft);
+    overflow: hidden;
+    background: var(--color-bg-card);
+    box-shadow: var(--shadow-soft);
     display: flex;
     flex-direction: column;
-    margin-bottom: 18px;
-    max-width: 400px;
-}
-
-.form-group label {
-    margin-bottom: 6px;
-    font-weight: 600;
-}
-
-/* CAMPS */
-.form-group input,
-.form-group textarea {
     width: 100%;
+    position: relative;
+    transition: transform var(--transition-fast),
+                box-shadow var(--transition-fast),
+                border-color var(--transition-fast);
 }
 
-/* BOTÓ GUARDAR PLE AMPLE */
-.btn-full {
+.event-card--featured {
+    border-color: #fbbf24;
+    box-shadow: 0 12px 26px rgba(250, 204, 21, 0.45);
+}
+
+.event-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-strong);
+    border-color: #c7d2fe;
+}
+
+/* Thumbnail */
+.event-card-thumb {
+    position: relative;
     width: 100%;
-    margin-top: 10px;
+    height: 200px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #005eff, #1e3a8a);
 }
 
-/* INPUT FILE BONIC */
-input[type="file"] {
-    padding: 6px;
-    background: #fff;
-    border-radius: 6px;
-}
-.field-error {
-    color: #b00020;
-    font-size: 14px;
-    margin-top: 6px;
-}
-
-.btn-full {
+.event-card-thumb img.card-img-top {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition-normal), filter var(--transition-normal);
 }
-.footer {
-  margin-top: 30px;
-  border-top: 1px solid #e2e2e2;
-  background: #fff;
+
+.event-card:hover .event-card-thumb img.card-img-top {
+    transform: scale(1.05);
+    filter: saturate(1.08);
 }
-.footer .footer-inner {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 14px 22px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+
+/* Chips (categoria + destacat) */
+.event-card-chip-wrapper {
+    position: absolute;
+    inset-inline: 10px;
+    top: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.4rem;
+    pointer-events: none;
 }
-.footer nav a { margin-left: 14px; }
+
+.event-chip {
+    pointer-events: auto;
+    padding: 0.2rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    background: rgba(255, 255, 255, 0.92);
+    color: #111827;
+    border: 1px solid rgba(209, 213, 219, 0.9);
+    white-space: nowrap;
+}
+
+.event-chip-featured {
+    background: #fffbeb;
+    color: #92400e;
+    border-color: #fbbf24;
+}
+
+/* Contingut targeta */
+.event-card .card-body {
+    padding: 0.9rem 1rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.event-card-title {
+    margin: 0 0 0.35rem;
+    font-size: 1.02rem;
+    font-weight: 650;
+    line-height: 1.25;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.event-card-title a {
+    color: var(--color-text-main);
+}
+.event-card-title a:hover {
+    text-decoration: underline;
+}
+
+/* Meta: data, hora, estat */
+.event-card-meta {
+    margin: 0 0 0.5rem;
+    font-size: 0.86rem;
+    color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+}
+
+.event-card-dot {
+    color: var(--color-text-soft);
+}
+
+/* Estat pill */
+.event-card-status {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.1rem 0.6rem;
+    border-radius: 999px;
+    background: #e5e7eb;
+    color: #111827;
+}
+
+.event-card-status-scheduled { background: #eef2ff; color: #4338ca; }
+.event-card-status-live      { background: #dcfce7; color: #166534; }
+.event-card-status-finished  { background: #e5e7eb; color: #374151; }
+.event-card-status-cancelled { background: #fee2e2; color: #b91c1c; }
+
+/* Descripció */
+.event-card-description {
+    font-size: 0.9rem;
+    color: #4b5563;
+    margin: 0;
+    margin-top: auto;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Paginació */
+.events-pagination {
+    margin-top: 1.4rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+.events-pagination span {
+    font-size: 0.9rem;
+    color: #4b5563;
+}
+
+/* =========================================================
+   PÀGINA DE DETALL D'ESDEVENIMENT
+========================================================= */
+
+.event-detail {
+    background: var(--color-bg-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid #e5e7eb;
+    padding: 1.6rem 1.7rem 1.8rem;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.12);
+}
+
+.event-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.1rem;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 1rem;
+}
+
+.event-detail-title {
+    margin: 0 0 0.4rem;
+    font-size: 1.8rem;
+    font-weight: 750;
+}
+
+.event-detail-meta {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.event-detail-meta .dot {
+    color: var(--color-text-soft);
+}
+
+.event-detail-actions .btn {
+    margin-left: 0.3rem;
+}
+
+/* Estats al detall */
+.event-status {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.14rem 0.7rem;
+    border-radius: 999px;
+    background: #e5e7eb;
+    color: #111827;
+}
+.event-status-scheduled { background: #eef2ff; color: #4338ca; }
+.event-status-live      { background: #dcfce7; color: #166534; }
+.event-status-finished  { background: #e5e7eb; color: #374151; }
+.event-status-cancelled { background: #fee2e2; color: #b91c1c; }
+
+/* Imatge gran */
+.event-detail-thumb {
+    margin-bottom: 1rem;
+}
+.event-detail-thumb img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+}
+
+/* Cos del detall */
+.event-detail-body {
+    font-size: 0.97rem;
+    color: #374151;
+}
+
+.event-detail-description p {
+    margin-top: 0;
+}
+
+/* Tags */
+.event-detail-tags {
+    margin-top: 0.7rem;
+    margin-bottom: 0.4rem;
+}
+.event-detail-tags .badge {
+    margin-right: 0.3rem;
+    margin-bottom: 0.3rem;
+}
+
+/* Info creador */
+.event-detail-meta-secondary {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+/* Bloc streaming */
+.event-detail-stream {
+    margin-top: 1.4rem;
+}
+.event-detail-stream h2 {
+    margin-bottom: 0.6rem;
+}
+.event-detail-stream .ratio {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.14);
+}
+
+/* =========================================================
+   FORM CREAR / EDITAR ESDEVENIMENT
+========================================================= */
+
+.form-event {
+    background: var(--color-bg-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid #e5e7eb;
+    padding: 1.4rem 1.4rem 1.5rem;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+    max-width: 760px;
+}
+
+.form-event .mb-3 {
+    margin-bottom: 0.85rem !important;
+}
+
+/* =========================================================
+   MY EVENTS
+========================================================= */
+
+.my-events-stats {
+    background: var(--color-bg-soft);
+    border-radius: 10px;
+    border: 1px solid var(--color-border-soft);
+    padding: 0.7rem 0.9rem;
+    font-size: 0.9rem;
+    color: #374151;
+    margin-bottom: 1rem;
+}
+
+.my-events-filter {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem;
+    margin-bottom: 1.2rem;
+}
+
+.my-events-filter label {
+    font-size: 0.9rem;
+    margin-right: 0.3rem;
+}
+
+.my-events-filter select {
+    min-width: 160px;
+    font-size: 0.9rem;
+}
+
+/* =========================================================
+   CONFIRMACIÓ DELETE
+========================================================= */
+
+.event-delete-page {
+    display: flex;
+    justify-content: center;
+}
+
+.event-delete-card {
+    background: #fef2f2;
+    border-radius: var(--radius-lg);
+    border: 1px solid #fecaca;
+    max-width: 520px;
+    width: 100%;
+    padding: 1.3rem 1.4rem 1.5rem;
+    box-shadow: 0 10px 24px rgba(248, 113, 113, 0.25);
+}
+
+.event-delete-card h1 {
+    margin-top: 0;
+    margin-bottom: 0.6rem;
+}
+
+.event-delete-card p {
+    margin-bottom: 1.1rem;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 992px) {
+    .events-page-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .main-shell {
+        padding-top: 60px;
+    }
+
+    .profile {
+        flex-direction: column;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        gap: 0.4rem;
+        text-align: center;
+    }
+
+    .btn-full-on-mobile {
+        width: 100%;
+    }
+}
+
+/* =============================
+   NAVBAR MODERNA · SOBRE BOOTSTRAP
+============================= */
+
+.navbar {
+    position: sticky;          /* es queda enganxada a dalt en fer scroll */
+    top: 0;
+    z-index: 1030;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.65rem 2.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+/* Marca (StreamEvents) */
+.navbar .navbar-brand {
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    color: var(--color-primary);
+}
+
+/* Enllaços del menú (Esdeveniments, Perfil, etc.) */
+.navbar .navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.navbar .nav-link {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: #4b5563;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+    text-decoration: none;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus,
+.navbar .nav-link.active {
+    background: var(--color-primary-light);
+    color: var(--color-primary-dark);
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+/* Enllaç de logout en vermell */
+.navbar .nav-link.logout-link {
+    color: #dc2626;
+}
+.navbar .nav-link.logout-link:hover {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+/* Botó primari dins la navbar (si en tens) */
+.navbar .btn-primary {
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+}
+
+/* Versió mòbil: una mica menys de padding */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.5rem 1rem;
+    }
+
+    .navbar .navbar-nav {
+        gap: 0.15rem;
+    }
+
+    .navbar .nav-link {
+        padding: 0.3rem 0.75rem;
+    }
+}
+/* =============================
+   ESPAIAT I ESTIL DELS ENLLAÇOS DEL HEADER
+============================= */
+
+/* Estil comú per a tots els enllaços del <nav> */
+.navbar a {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: #4b5563;
+    text-decoration: none;
+}
+
+/* Marca (logo) una mica més destacada */
+.navbar a.navbar-brand {
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+}
+
+/* SEPARACIÓ ENTRE ENLLAÇOS DE LA DRETA
+   (qualsevol <a> que vagi després d'un altre <a>) */
+.navbar a + a {
+    margin-left: 1.5rem;    /* prova 1.5rem, puja o baixa si vols més/menys espai */
+}
+
+/* Opcional: efecte “pill” suau quan hi passes el ratolí */
+.navbar a:not(.navbar-brand):hover {
+    background: rgba(226, 232, 240, 0.8);
+    border-radius: 999px;
+    padding: 0.25rem 0.6rem;
+    color: #111827;
+    text-decoration: none;
+}

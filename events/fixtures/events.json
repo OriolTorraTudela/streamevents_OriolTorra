@@ -1,0 +1,382 @@
+[
+  {
+    "model": "events.event",
+    "pk": 1,
+    "fields": {
+      "title": "Grand Final VALORANT Champions Seoul 2024 – EDG vs TH",
+      "description": "Emissió oficial de la gran final de VALORANT Champions Seoul 2024.",
+      "creator": 1,
+      "category": "Gaming",
+      "scheduled_date": "2024-08-26T18:00:00Z",
+      "status": "finished",
+      "thumbnail": "https://img.youtube.com/vi/paXOFTp3Hx0/hqdefault.jpg",
+      "max_viewers": 500000,
+      "is_featured": true,
+      "created_at": "2025-12-01T10:00:00Z",
+      "updated_at": "2025-12-01T10:00:00Z",
+      "tags": "valorant, champions, final, esports",
+      "stream_url": "https://www.youtube.com/watch?v=paXOFTp3Hx0"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 2,
+    "fields": {
+      "title": "VCT Masters Shanghai 2024 – Playlist oficial",
+      "description": "Llista amb tots els partits del VCT Masters Shanghai 2024.",
+      "creator": 2,
+      "category": "Gaming",
+      "scheduled_date": "2024-05-15T16:00:00Z",
+      "status": "finished",
+      "thumbnail": "",
+      "max_viewers": 300000,
+      "is_featured": true,
+      "created_at": "2025-12-01T10:15:00Z",
+      "updated_at": "2025-12-01T10:15:00Z",
+      "tags": "valorant, masters, shanghai, playlist",
+      "stream_url": "https://www.youtube.com/playlist?list=PLMJ9cfx_WDdzoPhpg1K3gJaon4Ic6665A"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 3,
+    "fields": {
+      "title": "VCT Masters Madrid 2024 – Grand Final SEN vs GenG",
+      "description": "Grand final del VCT Masters Madrid 2024 amb cobertura completa.",
+      "creator": 3,
+      "category": "Gaming",
+      "scheduled_date": "2024-03-24T19:00:00Z",
+      "status": "finished",
+      "thumbnail": "https://img.youtube.com/vi/LNCXI2vB7uI/hqdefault.jpg",
+      "max_viewers": 250000,
+      "is_featured": false,
+      "created_at": "2025-12-01T10:30:00Z",
+      "updated_at": "2025-12-01T10:30:00Z",
+      "tags": "valorant, masters, madrid, final",
+      "stream_url": "https://www.youtube.com/watch?v=LNCXI2vB7uI"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 4,
+    "fields": {
+      "title": "GEN.G vs SEN – Grand Final Masters Madrid 2024 (VOD)",
+      "description": "Partit complet de la gran final entre Gen.G i Sentinels.",
+      "creator": 1,
+      "category": "Gaming",
+      "scheduled_date": "2024-03-24T16:00:00Z",
+      "status": "finished",
+      "thumbnail": "https://img.youtube.com/vi/wpDdRR-BqdU/hqdefault.jpg",
+      "max_viewers": 220000,
+      "is_featured": false,
+      "created_at": "2025-12-01T10:45:00Z",
+      "updated_at": "2025-12-01T10:45:00Z",
+      "tags": "valorant, gen.g, sentinels, final",
+      "stream_url": "https://www.youtube.com/watch?v=wpDdRR-BqdU"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 5,
+    "fields": {
+      "title": "Coldplay Live 2023 – Barcelona, Estadi Olímpic",
+      "description": "Concert complet de Coldplay a Barcelona, Music Of The Spheres Tour.",
+      "creator": 1,
+      "category": "Música",
+      "scheduled_date": "2023-05-25T20:30:00Z",
+      "status": "finished",
+      "thumbnail": "https://img.youtube.com/vi/ObQS2NYvq0M/hqdefault.jpg",
+      "max_viewers": 150000,
+      "is_featured": true,
+      "created_at": "2025-12-01T11:00:00Z",
+      "updated_at": "2025-12-01T11:00:00Z",
+      "tags": "coldplay, barcelona, concert, live",
+      "stream_url": "https://www.youtube.com/watch?v=ObQS2NYvq0M"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 6,
+    "fields": {
+      "title": "SLIPKNOT – Live at Resurrection Fest EG 2023",
+      "description": "Concert complet de Slipknot al Resurrection Fest 2023.",
+      "creator": 2,
+      "category": "Música",
+      "scheduled_date": "2023-06-30T21:00:00Z",
+      "status": "finished",
+      "thumbnail": "https://img.youtube.com/vi/ENJumhoaW2s/hqdefault.jpg",
+      "max_viewers": 120000,
+      "is_featured": false,
+      "created_at": "2025-12-01T11:15:00Z",
+      "updated_at": "2025-12-01T11:15:00Z",
+      "tags": "slipknot, resurrectionfest, metal, concert",
+      "stream_url": "https://www.youtube.com/watch?v=ENJumhoaW2s"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 7,
+    "fields": {
+      "title": "Coldplay – A Sky Full of Stars (moment emotiu Barcelona 2023)",
+      "description": "Fragment del moment més emotiu del concert de Coldplay a Barcelona.",
+      "creator": 3,
+      "category": "Música",
+      "scheduled_date": "2023-05-25T21:15:00Z",
+      "status": "finished",
+      "thumbnail": "https://img.youtube.com/vi/w3PG800VSpU/hqdefault.jpg",
+      "max_viewers": 90000,
+      "is_featured": false,
+      "created_at": "2025-12-01T11:30:00Z",
+      "updated_at": "2025-12-01T11:30:00Z",
+      "tags": "coldplay, sky full of stars, barcelona",
+      "stream_url": "https://www.youtube.com/watch?v=w3PG800VSpU"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 8,
+    "fields": {
+      "title": "12 Predictions for the Future of Technology – Vinod Khosla (TED)",
+      "description": "Xerrada TED sobre 12 prediccions valentes sobre el futur de la tecnologia.",
+      "creator": 1,
+      "category": "Xerrades",
+      "scheduled_date": "2023-06-15T18:00:00Z",
+      "status": "finished",
+      "thumbnail": "https://img.youtube.com/vi/Pj9QnO9rZkE/hqdefault.jpg",
+      "max_viewers": 50000,
+      "is_featured": true,
+      "created_at": "2025-12-01T11:45:00Z",
+      "updated_at": "2025-12-01T11:45:00Z",
+      "tags": "ted, tecnologia, futur, innovació",
+      "stream_url": "https://www.youtube.com/watch?v=Pj9QnO9rZkE"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 9,
+    "fields": {
+      "title": "Is Technology Corrupting our Future? – TEDx Talk",
+      "description": "Xerrada TEDx sobre com la tecnologia impacta en les noves generacions.",
+      "creator": 2,
+      "category": "Xerrades",
+      "scheduled_date": "2023-03-10T17:00:00Z",
+      "status": "finished",
+      "thumbnail": "https://img.youtube.com/vi/KPaKgix5Qhk/hqdefault.jpg",
+      "max_viewers": 30000,
+      "is_featured": false,
+      "created_at": "2025-12-01T12:00:00Z",
+      "updated_at": "2025-12-01T12:00:00Z",
+      "tags": "tedx, tecnologia, societat",
+      "stream_url": "https://www.youtube.com/watch?v=KPaKgix5Qhk"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 10,
+    "fields": {
+      "title": "A Human-Friendly Future in the Age of AI",
+      "description": "Sessió sobre com construir un futur més humà en l’era de la intel·ligència artificial.",
+      "creator": 3,
+      "category": "Xerrades",
+      "scheduled_date": "2024-09-01T18:30:00Z",
+      "status": "finished",
+      "thumbnail": "https://img.youtube.com/vi/cHCmaf9w1SM/hqdefault.jpg",
+      "max_viewers": 40000,
+      "is_featured": false,
+      "created_at": "2025-12-01T12:15:00Z",
+      "updated_at": "2025-12-01T12:15:00Z",
+      "tags": "ai, futur, societat, xerrada",
+      "stream_url": "https://www.youtube.com/watch?v=cHCmaf9w1SM"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 11,
+    "fields": {
+      "title": "Learn Python – Full Course for Beginners",
+      "description": "Curs complet de Python per a principiants, ideal per a educació en línia.",
+      "creator": 1,
+      "category": "Educació",
+      "scheduled_date": "2025-01-10T09:00:00Z",
+      "status": "live",
+      "thumbnail": "https://img.youtube.com/vi/rfscVS0vtbw/hqdefault.jpg",
+      "max_viewers": 120000,
+      "is_featured": true,
+      "created_at": "2025-12-01T12:30:00Z",
+      "updated_at": "2025-12-01T12:30:00Z",
+      "tags": "python, curs, programació, educació",
+      "stream_url": "https://www.youtube.com/watch?v=rfscVS0vtbw"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 12,
+    "fields": {
+      "title": "Python Full Course For Beginners (Learn How To Code in 2025)",
+      "description": "Curs actualitzat de Python orientat a nous programadors el 2025.",
+      "creator": 2,
+      "category": "Educació",
+      "scheduled_date": "2025-03-01T10:00:00Z",
+      "status": "scheduled",
+      "thumbnail": "https://img.youtube.com/vi/Lc5LKDqhyzs/hqdefault.jpg",
+      "max_viewers": 80000,
+      "is_featured": false,
+      "created_at": "2025-12-01T12:45:00Z",
+      "updated_at": "2025-12-01T12:45:00Z",
+      "tags": "python, beginners, fullcourse, educació",
+      "stream_url": "https://www.youtube.com/watch?v=Lc5LKDqhyzs"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 13,
+    "fields": {
+      "title": "FC Barcelona 4-3 Real Madrid – FULL MATCH LaLiga 2024/25",
+      "description": "El Clàssic complet amb victòria del Barça 4-3 contra el Madrid.",
+      "creator": 1,
+      "category": "Esports",
+      "scheduled_date": "2024-10-27T19:00:00Z",
+      "status": "finished",
+      "thumbnail": "https://img.youtube.com/vi/FyjNC8mbs5E/hqdefault.jpg",
+      "max_viewers": 600000,
+      "is_featured": true,
+      "created_at": "2025-12-01T13:00:00Z",
+      "updated_at": "2025-12-01T13:00:00Z",
+      "tags": "barcelona, real madrid, el clasico, futbol",
+      "stream_url": "https://www.youtube.com/watch?v=FyjNC8mbs5E"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 14,
+    "fields": {
+      "title": "Real Madrid 0-4 FC Barcelona – FULL MATCH LaLiga 2024/25",
+      "description": "Partit complet del 0–4 del Barça al Bernabéu.",
+      "creator": 2,
+      "category": "Esports",
+      "scheduled_date": "2024-11-10T20:00:00Z",
+      "status": "finished",
+      "thumbnail": "https://img.youtube.com/vi/qkf61JUgnLM/hqdefault.jpg",
+      "max_viewers": 700000,
+      "is_featured": false,
+      "created_at": "2025-12-01T13:15:00Z",
+      "updated_at": "2025-12-01T13:15:00Z",
+      "tags": "laliga, barcelona, real madrid, fullmatch",
+      "stream_url": "https://www.youtube.com/watch?v=qkf61JUgnLM"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 15,
+    "fields": {
+      "title": "DIRECTO: Open Play – entreteniment en viu",
+      "description": "Programa Open Play en directe, barreja de tele, podcast i streaming.",
+      "creator": 3,
+      "category": "Entreteniment",
+      "scheduled_date": "2025-02-01T20:30:00Z",
+      "status": "scheduled",
+      "thumbnail": "https://img.youtube.com/vi/ZP9JJylO1PI/hqdefault.jpg",
+      "max_viewers": 50000,
+      "is_featured": true,
+      "created_at": "2025-12-01T13:30:00Z",
+      "updated_at": "2025-12-01T13:30:00Z",
+      "tags": "open play, entreteniment, directe",
+      "stream_url": "https://www.youtube.com/watch?v=ZP9JJylO1PI"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 16,
+    "fields": {
+      "title": "Poco se Habla – Podcast de humor i entrevistes",
+      "description": "Canal del podcast ‘Poco se Habla’, humor i entrevistes cada diumenge.",
+      "creator": 2,
+      "category": "Entreteniment",
+      "scheduled_date": "2025-01-05T09:00:00Z",
+      "status": "live",
+      "thumbnail": "",
+      "max_viewers": 30000,
+      "is_featured": false,
+      "created_at": "2025-12-01T13:45:00Z",
+      "updated_at": "2025-12-01T13:45:00Z",
+      "tags": "podcast, humor, entrevistes, entreteniment",
+      "stream_url": "https://www.youtube.com/@pocosehablaelpodcast"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 17,
+    "fields": {
+      "title": "Future of Technology – Keynote de Nikolas Badminton",
+      "description": "Conferència d’obertura sobre el futur de la tecnologia en un congrés B2B.",
+      "creator": 1,
+      "category": "Tecnologia",
+      "scheduled_date": "2024-04-20T09:30:00Z",
+      "status": "finished",
+      "thumbnail": "https://img.youtube.com/vi/TEWLEu_RXcc/hqdefault.jpg",
+      "max_viewers": 20000,
+      "is_featured": true,
+      "created_at": "2025-12-01T14:00:00Z",
+      "updated_at": "2025-12-01T14:00:00Z",
+      "tags": "keynote, futur, tecnologia, innovació",
+      "stream_url": "https://www.youtube.com/watch?v=TEWLEu_RXcc"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 18,
+    "fields": {
+      "title": "AI Will Reimagine Everything in 2025 – Keynote",
+      "description": "Ponència sobre com la IA reimaginarà tots els sectors el 2025.",
+      "creator": 3,
+      "category": "Tecnologia",
+      "scheduled_date": "2025-04-15T16:00:00Z",
+      "status": "scheduled",
+      "thumbnail": "https://img.youtube.com/vi/ut6EGDVMG6o/hqdefault.jpg",
+      "max_viewers": 40000,
+      "is_featured": false,
+      "created_at": "2025-12-01T14:15:00Z",
+      "updated_at": "2025-12-01T14:15:00Z",
+      "tags": "ai, keynote, futur, tecnologia",
+      "stream_url": "https://www.youtube.com/watch?v=ut6EGDVMG6o"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 19,
+    "fields": {
+      "title": "Live Art Streams – Digital Painting & Concept Art",
+      "description": "Sessions en directe de pintura digital i concept art per a artistes.",
+      "creator": 2,
+      "category": "Art i Creativitat",
+      "scheduled_date": "2025-01-20T18:00:00Z",
+      "status": "live",
+      "thumbnail": "",
+      "max_viewers": 15000,
+      "is_featured": true,
+      "created_at": "2025-12-01T14:30:00Z",
+      "updated_at": "2025-12-01T14:30:00Z",
+      "tags": "art, streaming, pintura digital, creativitat",
+      "stream_url": "https://www.youtube.com/playlist?list=PLM0BDr4AnCUpSlwgkRl2dbcOpp_wn9ZQH"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 20,
+    "fields": {
+      "title": "Hoy por Hoy – Programa de ràdio en directe",
+      "description": "Programa líder de les matins a la ràdio espanyola, amb informació i humor.",
+      "creator": 1,
+      "category": "Altres",
+      "scheduled_date": "2025-01-03T08:30:00Z",
+      "status": "live",
+      "thumbnail": "",
+      "max_viewers": 50000,
+      "is_featured": false,
+      "created_at": "2025-12-01T14:45:00Z",
+      "updated_at": "2025-12-01T14:45:00Z",
+      "tags": "ràdio, notícies, entreteniment, magazín",
+      "stream_url": "https://www.youtube.com/c/Hoyporhoy/videos"
+    }
+  }
+]

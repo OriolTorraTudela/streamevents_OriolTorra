@@ -1,0 +1,44 @@
+{# templates/events/includes/event_card.html #}
+{% with compact|default:False as is_compact %}
+<div class="card event-card h-100
+    {% if event.is_featured %} event-card--featured{% endif %}
+    {% if is_compact %} event-card--compact{% endif %}
+">
+    {% if event.thumbnail %}
+        <div class="event-card-thumb">
+            <img src="{{ event.get_thumbnail_url }}" class="card-img-top" alt="{{ event.title }}">
+
+            <div class="event-card-chip-wrapper">
+                <span class="event-chip">
+                    {{ event.get_category_display }}
+                </span>
+                {% if event.is_featured %}
+                    <span class="event-chip event-chip-featured">
+                        Destacat
+                    </span>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="card-body">
+        <h5 class="card-title event-card-title">
+            <a href="{% url 'events:event_detail' event.pk %}">{{ event.title }}</a>
+        </h5>
+
+        <p class="event-card-meta">
+            <span>{{ event.scheduled_date|date:"d/m/Y H:i" }}</span>
+            <span class="event-card-dot">·</span>
+            <span class="event-card-status event-card-status-{{ event.status }}">
+                {{ event.get_status_display }}
+            </span>
+        </p>
+
+        {% if not is_compact %}
+            <p class="event-card-description">
+                {{ event.description|truncatewords:20 }}
+            </p>
+        {% endif %}
+    </div>
+</div>
+{% endwith %}

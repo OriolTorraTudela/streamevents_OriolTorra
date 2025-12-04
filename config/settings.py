@@ -15,6 +15,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users',  # MOD: App d'usuari personalitzada
+    'events',
 ]
 
 MIDDLEWARE = [
@@ -83,7 +84,7 @@ MEDIA_ROOT = BASE_DIR / 'media'  # MOD: Directori media
 
 AUTH_USER_MODEL = 'users.CustomUser'  # MOD: Model d'usuari personalitzat (definir abans primer migrate)
 
-LOGIN_URL = 'login'  # MOD: Nom URL login
+LOGIN_URL = 'users:login'  # MOD: Nom URL login
 LOGIN_REDIRECT_URL = 'home'  # MOD: Destí després d'iniciar sessió
 LOGOUT_REDIRECT_URL = 'login'  # MOD: Destí després de tancar sessió
 

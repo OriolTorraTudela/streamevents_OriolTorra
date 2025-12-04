@@ -2,7 +2,14 @@
     <a href="{% url 'home' %}" class="brand">StreamEvents</a>
 
     <div>
+        <!-- Enllaç general a la llista d'esdeveniments -->
+        <a href="{% url 'events:event_list' %}">Esdeveniments</a>
+
         {% if user.is_authenticated %}
+            <!-- Opcions extra per usuaris loguejats -->
+            <a href="{% url 'events:my_events' %}">Els meus esdeveniments</a>
+            <a href="{% url 'events:event_create' %}">Crear esdeveniment</a>
+
             <a href="{% url 'users:profile' %}">Perfil</a>
             <a href="{% url 'users:logout' %}" class="logout">Tancar sessió</a>
         {% else %}

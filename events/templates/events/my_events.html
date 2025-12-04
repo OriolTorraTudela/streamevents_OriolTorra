@@ -1,0 +1,75 @@
+{# templates/events/my_events.html #}
+{% extends "base.html" %}
+
+{% block title %}Els meus esdeveniments · StreamEvents{% endblock %}
+
+{% block content %}
+<section class="events-page">
+    <div class="events-page-header d-flex justify-content-between align-items-center">
+        <div>
+            <h1 class="events-title">Els meus esdeveniments</h1>
+            <p class="events-subtitle">
+                Resum dels directes que has creat i el seu estat actual.
+            </p>
+        </div>
+        <a href="{% url 'events:event_create' %}"
+           class="btn btn-primary events-create-btn d-none d-sm-inline-block">
+            + Nou esdeveniment
+        </a>
+    </div>
+
+    <div class="my-events-stats mb-3">
+        <strong>Total:</strong> {{ stats.total }} ·
+        Programats: {{ stats.scheduled }} ·
+        En directe: {{ stats.live }} ·
+        Finalitzats: {{ stats.finished }} ·
+        Cancel·lats: {{ stats.cancelled }}
+    </div>
+
+    <form method="get" class="my-events-filter mb-3">
+        <label for="status">Filtrar per estat:</label>
+        <select name="status" id="status" class="form-select d-inline-block w-auto ms-2" onchange="this.form.submit()">
+            <option value="">Tots</option>
+            <option value="scheduled" {% if status_filter == "scheduled" %}selected{% endif %}>
+                Programat
+            </option>
+            <option value="live" {% if status_filter == "live" %}selected{% endif %}>
+                En directe
+            </option>
+            <option value="finished" {% if status_filter == "finished" %}selected{% endif %}>
+                Finalitzat
+            </option>
+            <option value="cancelled" {% if status_filter == "cancelled" %}selected{% endif %}>
+                Cancel·lat
+            </option>
+        </select>
+    </form>
+
+    <div class="row g-3 events-grid">
+        {% for event in events %}
+            <div class="col-md-4">
+                <div class="my-event-card-wrapper h-100 d-flex flex-column">
+                    {% include "events/includes/event_card.html" with event=event compact=True %}
+
+                    <div class="my-event-actions mt-2 d-flex flex-wrap gap-2">
+                        <a href="{% url 'events:event_update' event.pk %}"
+                           class="btn btn-sm btn-outline-primary">
+                            Editar
+                        </a>
+                        <a href="{% url 'events:event_delete' event.pk %}"
+                           class="btn btn-sm btn-outline-danger">
+                            Eliminar
+                        </a>
+                        <a href="{% url 'events:event_update' event.pk %}#id_status"
+                           class="btn btn-sm btn-outline-secondary">
+                            Canviar estat
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>No tens cap esdeveniment creat.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
