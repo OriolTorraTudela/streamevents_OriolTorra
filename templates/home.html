@@ -20,12 +20,6 @@
     <a href="{% url 'users:profile' %}" class="btn btn-light">Veure el meu perfil</a>
     <a href="{% url 'users:logout' %}" class="btn">Tancar sessió</a>
 {% else %}
-    <div class="mb-3">
-        <a href="{% url 'events:event_list' %}" class="btn btn-outline-primary">
-            Veure esdeveniments públics
-        </a>
-    </div>
-
     <a href="{% url 'users:login' %}" class="btn btn-primary">Iniciar sessió</a>
     <a href="{% url 'users:register' %}" class="btn">Registrar-se</a>
 {% endif %}
