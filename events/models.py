@@ -30,10 +30,10 @@ CATEGORY_CHOICES = [
 ]
 
 STATUS_CHOICES = [
-    ("scheduled", "Programat"),
-    ("live", "En Directe"),
-    ("finished", "Finalitzat"),
-    ("cancelled", "Cancel·lat"),
+    ("Programat", "Programat"),
+    ("En Directe", "En Directe"),
+    ("Finalitzat", "Finalitzat"),
+    ("Cancel·lat", "Cancel·lat"),
 ]
 
 CATEGORY_ESTIMATED_DURATION = {
