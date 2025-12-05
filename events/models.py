@@ -79,7 +79,7 @@ class Event(models.Model):
     status = models.CharField(
         max_length=20,
         choices=STATUS_CHOICES,
-        default="scheduled",
+        default="Programat",
     )
 
     # Thumbnail opcional
@@ -134,7 +134,7 @@ class Event(models.Model):
     @property
     def is_live(self) -> bool:
         """Retorna True si l'esdeveniment està en directe."""
-        return self.status == "live"
+        return self.status == "En Directe"
 
     @property
     def is_upcoming(self) -> bool:
@@ -145,7 +145,7 @@ class Event(models.Model):
         """
         if not self.scheduled_date:
             return False
-        return self.status == "scheduled" and self.scheduled_date > timezone.now()
+        return self.status == "Programat" and self.scheduled_date > timezone.now()
 
     # --- Info derivada ---
 
@@ -154,7 +154,7 @@ class Event(models.Model):
         Calcula la durada estimada si l'esdeveniment està finalitzat.
         Torna un timedelta o None.
         """
-        if self.status != "finished":
+        if self.status != "Finalitzat":
             return None
 
         minutes = CATEGORY_ESTIMATED_DURATION.get(self.category, 90)
@@ -314,11 +314,11 @@ class Event(models.Model):
 
         # scheduled -> live
         scheduled_qs = cls.objects.filter(
-            status="scheduled",
+            status="Programat",
             scheduled_date__lte=now,
         )
         for ev in scheduled_qs:
-            ev.status = "live"
+            ev.status = "En Directe"
             ev.save(update_fields=["status", "updated_at"])
             stats["scheduled_to_live"] += 1
 
@@ -331,7 +331,7 @@ class Event(models.Model):
             minutes = CATEGORY_ESTIMATED_DURATION.get(ev.category, 90)
             end_time = ev.scheduled_date + timedelta(minutes=minutes)
             if end_time <= now:
-                ev.status = "finished"
+                ev.status = "Finalitzat"
                 ev.save(update_fields=["status", "updated_at"])
                 stats["live_to_finished"] += 1
 

@@ -290,10 +290,10 @@ def my_events_view(request):
 
     stats = {
         "total": len(all_events),
-        "scheduled": sum(1 for e in all_events if e.status == "scheduled"),
-        "live": sum(1 for e in all_events if e.status == "live"),
-        "finished": sum(1 for e in all_events if e.status == "finished"),
-        "cancelled": sum(1 for e in all_events if e.status == "cancelled"),
+        "Programat": sum(1 for e in all_events if e.status == "Programat"),
+        "En Directe": sum(1 for e in all_events if e.status == "En Directe"),
+        "Finalitzat": sum(1 for e in all_events if e.status == "Finalitzat"),
+        "Cancel·lat": sum(1 for e in all_events if e.status == "Cancel·lat"),
     }
 
     if status_filter:

@@ -188,7 +188,7 @@ class EventUpdateForm(forms.ModelForm):
                 )
 
         # No es pot canviar la data si ja està en directe
-        if self.instance and self.instance.status == "live":
+        if self.instance and self.instance.status == "En Directe":
             if "scheduled_date" in self.changed_data and new_date != self.instance.scheduled_date:
                 raise forms.ValidationError(
                     "No es pot canviar la data d'un esdeveniment que ja està en directe."
