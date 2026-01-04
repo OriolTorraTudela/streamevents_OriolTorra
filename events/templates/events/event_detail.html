@@ -3,91 +3,99 @@
 {% block title %}{{ event.title }} · StreamEvents{% endblock %}
 
 {% block content %}
-<article class="event-detail">
-    {# ===== HEADER: títol + meta + botons ===== #}
-    <header class="event-detail-header d-flex justify-content-between align-items-start mb-4">
-        <div>
-            <h1 class="event-detail-title">{{ event.title }}</h1>
-            <p class="event-detail-meta text-muted mb-0">
-                <span>{{ event.get_category_display }}</span>
-                <span class="dot">·</span>
-                <span class="event-status event-status-{{ event.status }}">
-                    {{ event.get_status_display }}
-                </span>
-                <span class="dot">·</span>
-                <span>Programat per: {{ event.scheduled_date|date:"d/m/Y H:i" }}</span>
+<div class="row g-4">
+  <!-- Columna esquerra: Event detail -->
+  <div class="col-lg-8">
+    <article class="event-detail">
+        {# ===== HEADER: títol + meta + botons ===== #}
+        <header class="event-detail-header d-flex justify-content-between align-items-start mb-4">
+            <div>
+                <h1 class="event-detail-title">{{ event.title }}</h1>
+                <p class="event-detail-meta text-muted mb-0">
+                    <span>{{ event.get_category_display }}</span>
+                    <span class="dot">·</span>
+                    <span class="event-status event-status-{{ event.status }}">
+                        {{ event.get_status_display }}
+                    </span>
+                    <span class="dot">·</span>
+                    <span>Programat per: {{ event.scheduled_date|date:"d/m/Y H:i" }}</span>
+                </p>
+            </div>
+
+            {% if is_creator %}
+                <div class="event-detail-actions">
+                    <a href="{% url 'events:event_update' event.pk %}" class="btn btn-primary btn-sm">
+                        Editar
+                    </a>
+                    <a href="{% url 'events:event_delete' event.pk %}" class="btn btn-danger btn-sm">
+                        Eliminar
+                    </a>
+                </div>
+            {% endif %}
+        </header>
+
+        {# ===== MINIATURA (thumbnail) ===== #}
+        {% if event.thumbnail %}
+            <div class="event-detail-thumb mb-4">
+                <img src="{{ event.get_thumbnail_url }}" class="img-fluid" alt="{{ event.title }}">
+            </div>
+        {% endif %}
+
+        {# ===== COS: descripció, tags, creador ===== #}
+        <div class="event-detail-body mb-4">
+            <div class="event-detail-description mb-3">
+                {{ event.description|linebreaks }}
+            </div>
+
+            {% if event.tags %}
+                <div class="event-detail-tags mb-3">
+                    {% for tag in event.get_tags_list %}
+                        <span class="badge bg-secondary me-1">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <p class="event-detail-meta-secondary text-muted">
+                Creat per: {{ event.creator.display_name|default:event.creator.username }}
             </p>
         </div>
 
-        {% if is_creator %}
-            <div class="event-detail-actions">
-                <a href="{% url 'events:event_update' event.pk %}" class="btn btn-primary btn-sm">
-                    Editar
-                </a>
-                <a href="{% url 'events:event_delete' event.pk %}" class="btn btn-danger btn-sm">
-                    Eliminar
-                </a>
-            </div>
+        {# ===== STREAMING / DEMO (YouTube o Twitch) ===== #}
+        {% if event.stream_url %}
+            <section class="event-detail-stream mt-4">
+                <h2 class="h4 mb-3">Streaming / Demo</h2>
+
+                <div class="ratio ratio-16x9 mb-4">
+                    {% with embed_url=event.get_stream_embed_url %}
+                        {% if "twitch.tv" in embed_url %}
+                            <iframe
+                                src="{{ embed_url }}"
+                                title="{{ event.title }}"
+                                frameborder="0"
+                                allowfullscreen="true"
+                                scrolling="no"
+                                allow="autoplay; encrypted-media">
+                            </iframe>
+                        {% else %}
+                            <iframe
+                                src="{{ embed_url }}"
+                                title="YouTube video player"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen>
+                            </iframe>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+            </section>
         {% endif %}
-    </header>
+    </article>
+  </div>
 
-    {# ===== MINIATURA (thumbnail) ===== #}
-    {% if event.thumbnail %}
-        <div class="event-detail-thumb mb-4">
-            <img src="{{ event.get_thumbnail_url }}" class="img-fluid" alt="{{ event.title }}">
-        </div>
-    {% endif %}
-
-    {# ===== COS: descripció, tags, creador ===== #}
-    <div class="event-detail-body mb-4">
-        <div class="event-detail-description mb-3">
-            {{ event.description|linebreaks }}
-        </div>
-
-        {% if event.tags %}
-            <div class="event-detail-tags mb-3">
-                {% for tag in event.get_tags_list %}
-                    <span class="badge bg-secondary me-1">{{ tag }}</span>
-                {% endfor %}
-            </div>
-        {% endif %}
-
-        <p class="event-detail-meta-secondary text-muted">
-            Creat per: {{ event.creator.display_name|default:event.creator.username }}
-        </p>
-    </div>
-
-    {# ===== STREAMING / DEMO (YouTube o Twitch) ===== #}
-    {% if event.stream_url %}
-        <section class="event-detail-stream mt-4">
-            <h2 class="h4 mb-3">Streaming / Demo</h2>
-
-            <div class="ratio ratio-16x9 mb-4">
-                {% with embed_url=event.get_stream_embed_url %}
-                    {# Si és Twitch (player.twitch.tv / twitch.tv) #}
-                    {% if "twitch.tv" in embed_url %}
-                        <iframe
-                            src="{{ embed_url }}"
-                            title="{{ event.title }}"
-                            frameborder="0"
-                            allowfullscreen="true"
-                            scrolling="no"
-                            allow="autoplay; encrypted-media">
-                        </iframe>
-                    {% else %}
-                        {# Per defecte: YouTube (o altres que usin embed similar) #}
-                        <iframe
-                            src="{{ embed_url }}"
-                            title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen>
-                        </iframe>
-                    {% endif %}
-                {% endwith %}
-            </div>
-        </section>
-    {% endif %}
-</article>
+  <!-- Columna dreta: Xat -->
+  <div class="col-lg-4">
+    {% include "chat/includes/chat_box.html" %}
+  </div>
+</div>
 {% endblock %}

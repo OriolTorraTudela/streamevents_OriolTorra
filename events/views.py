@@ -4,6 +4,7 @@ from django.db import DatabaseError
 from django.http import Http404, HttpResponseForbidden, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.core.paginator import Paginator
+from chat.forms import ChatMessageForm  
 
 from events.models import Event, CATEGORY_CHOICES
 from .forms import EventCreationForm, EventUpdateForm, EventSearchForm
@@ -162,6 +163,7 @@ def event_detail_view(request, pk):
     context = {
         "event": event,
         "is_creator": is_creator,
+        "chat_form": ChatMessageForm(),
     }
     return render(request, "events/event_detail.html", context)
 

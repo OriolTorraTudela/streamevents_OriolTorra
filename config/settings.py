@@ -16,6 +16,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users',  # MOD: App d'usuari personalitzada
     'events',
+    'chat',
 ]
 
 MIDDLEWARE = [

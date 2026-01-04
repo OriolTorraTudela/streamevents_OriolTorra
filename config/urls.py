@@ -13,8 +13,12 @@ urlpatterns = [
     # USERS
     path("users/", include("users.urls", namespace="users")),
 
-    # EVENTS 👇
+    # EVENTS 
     path("events/", include(("events.urls", "events"), namespace="events")),
+    
+    # CHAT
+    path("chat/", include("chat.urls", namespace="chat")),
+
 ]
 
 if settings.DEBUG:
