@@ -3,7 +3,7 @@ from .models import ChatMessage
 
 
 class ChatMessageForm(forms.ModelForm):
-    # Llista bàsica (amplia-la si vols)
+    # Llista bàsica 
     FORBIDDEN_WORDS = [
         "idiota",
         "imbecil",
