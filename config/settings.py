@@ -17,6 +17,7 @@ INSTALLED_APPS = [
     'users',  # MOD: App d'usuari personalitzada
     'events',
     'chat',
+    'semantic_search',
 ]
 
 MIDDLEWARE = [

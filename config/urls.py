@@ -19,6 +19,10 @@ urlpatterns = [
     # CHAT
     path("chat/", include("chat.urls", namespace="chat")),
 
+    # Cerca-Semantica
+    path("", include("semantic_search.urls")),
+
+
 ]
 
 if settings.DEBUG:

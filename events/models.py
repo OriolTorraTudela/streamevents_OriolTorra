@@ -114,7 +114,11 @@ class Event(models.Model):
         null=True,
         help_text="URL de YouTube, Twitch o similar",
     )
-
+    
+    embedding = models.JSONField(blank=True, null=True)  # llista de floats
+    embedding_model = models.CharField(max_length=200, blank=True, null=True)
+    embedding_updated_at = models.DateTimeField(blank=True, null=True)
+    
     class Meta:
         ordering = ["-created_at"]  # Més recents primer
         verbose_name = "Esdeveniment"
